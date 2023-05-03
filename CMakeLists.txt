@@ -10,6 +10,6 @@ find_package(OpenMP)
 
 add_subdirectory(itensor)
 add_subdirectory(sample)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/tutorial
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tutorial
   DESTINATION share/itensor
   FILES_MATCHING PATTERN "*.txt" PATTERN "*.cc" PATTERN "*.h" PATTERN "inputfile_*")

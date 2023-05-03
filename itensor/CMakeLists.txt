@@ -10,7 +10,7 @@ target_sources(ITensor PRIVATE
   itdata/dense.cc itdata/combiner.cc itdata/diag.cc itdata/qdense.cc itdata/qcombiner.cc itdata/qdiag.cc itdata/scalar.cc
   qn.cc tagset.cc index.cc indexset.cc itensor.cc spectrum.cc decomp.cc hermitian.cc svd.cc global.cc
   mps/mps.cc mps/mpsalgs.cc mps/mpo.cc mps/mpoalgs.cc mps/autompo.cc)
-target_include_directories(ITensor PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}> $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}> $<INSTALL_INTERFACE:include>)
+target_include_directories(ITensor PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}> $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}> $<INSTALL_INTERFACE:include>)
 target_link_libraries(ITensor PUBLIC LAPACK::LAPACK BLAS::BLAS)
 if(OpenMP_CXX_FOUND)
   target_compile_definitions(ITensor PUBLIC ITENSOR_USE_OMP)
@@ -23,7 +23,7 @@ install(TARGETS ITensor
   LIBRARY DESTINATION lib)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/config.h
   DESTINATION include/itensor)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/itensor
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/itensor
   DESTINATION include
   FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 install(EXPORT itensor-targets
