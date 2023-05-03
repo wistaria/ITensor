@@ -10,8 +10,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: install lapack
-      run: sudo apt-get install liblapack-dev
     - name: cmake
       run: cmake -B build
     - name: make
