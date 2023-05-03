@@ -16,6 +16,7 @@ if(OpenMP_CXX_FOUND)
   target_compile_definitions(ITensor PUBLIC ITENSOR_USE_OMP)
   target_link_libraries(ITensor PUBLIC OpenMP::OpenMP_CXX)
 endif()
+add_library(ITensor::ITensor ALIAS ITensor)
 
 install(TARGETS ITensor
   EXPORT itensor-targets
