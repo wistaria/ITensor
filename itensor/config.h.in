@@ -1,0 +1,8 @@
+#ifndef __ITENSOR_CONFIG_H
+#define __ITENSOR_CONFIG_H
+
+#ifndef PLATFORM_@ITENSOR_PLATFORM@
+# define PLATFORM_@ITENSOR_PLATFORM@
+#endif
+
+#endif

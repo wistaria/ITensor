@@ -1,0 +1,15 @@
+set(PROGS dmrg dmrg_table dmrgj1j2 exthubbard trg ctmrg mixedspin hubbard_2d hubbard_2d_conserve_momentum)
+foreach(p ${PROGS})
+  add_executable(${p} ${p}.cc)
+  target_link_libraries(${p} PRIVATE ITensor)
+endforeach(p)
+
+set(PROGS dmrg trg ctmrg mixedspin hubbard_2d hubbard_2d_conserve_momentum)
+foreach(p ${PROGS})
+  add_test(NAME ${p} COMMAND ${p})
+endforeach(p)
+
+set(PROGS dmrg_table exthubbard)
+foreach(p ${PROGS})
+  add_test(NAME ${p} COMMAND ${p} ${CMAKE_CURRENT_SOURCE_DIR}/inputfile_${p})
+endforeach(p)

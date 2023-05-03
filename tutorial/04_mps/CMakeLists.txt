@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.15)
+project(tutorial CXX)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+find_package(ITensor REQUIRED)
+add_executable(mps mps.cc)
+target_link_libraries(mps ITensor::ITensor)
