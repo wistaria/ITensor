@@ -11,7 +11,9 @@ target_sources(ITensor PRIVATE
   qn.cc tagset.cc index.cc indexset.cc itensor.cc spectrum.cc decomp.cc hermitian.cc svd.cc global.cc
   mps/mps.cc mps/mpsalgs.cc mps/mpo.cc mps/mpoalgs.cc mps/autompo.cc)
 target_include_directories(ITensor PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}> $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}> $<INSTALL_INTERFACE:include>)
+find_package(LAPACK)
 target_link_libraries(ITensor PUBLIC LAPACK::LAPACK BLAS::BLAS)
+find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
   target_compile_definitions(ITensor PUBLIC ITENSOR_USE_OMP)
   target_link_libraries(ITensor PUBLIC OpenMP::OpenMP_CXX)
