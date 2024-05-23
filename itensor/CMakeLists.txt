@@ -3,6 +3,10 @@ configure_file(config.h.in config.h @ONLY)
 
 add_library(ITensor SHARED)
 set_target_properties(ITensor PROPERTIES OUTPUT_NAME itensor)
+if(APPLE)
+  set_target_properties(ITensor PROPERTIES LINK_FLAGS
+    "-Wl,-compatibility_version,${DYLIB_COMPAT_VERSION} -Wl,-current_version,${DYLIB_CURRENT_VERSION}")
+endif()
 target_compile_features(ITensor PUBLIC cxx_std_17)
 target_sources(ITensor PRIVATE
   util/args.cc util/input.cc util/cputime.cc
