@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
-project(ITensor VERSION 3.1.11 LANGUAGES CXX)
+project(ITensor VERSION 3.2.0 LANGUAGES CXX)
+
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 enable_testing()
 
-find_package(LAPACK)
+find_package(LAPACK REQUIRED)
 find_package(OpenMP)
 
 add_subdirectory(itensor)
