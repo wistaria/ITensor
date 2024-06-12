@@ -6,6 +6,9 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 enable_testing()
 
+find_package(LAPACK REQUIRED)
+find_package(OpenMP)
+
 add_subdirectory(itensor)
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   add_subdirectory(sample)
